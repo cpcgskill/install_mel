@@ -26,7 +26,8 @@ global proc string installationScriptLocation ()
 
 	// 执行脚本
 	string $script="import sys\n";
-	$script += "sys.path.append(r'" + $path + "')\n";
+	$script += "plugin_path = r'" + $path + "'\n";
+	$script += "sys.path.append(plugin_path)\n";
 	$script += $configExecScript;
 
 	shelfButton -stp python -rpt true -i1 ($path + "log.ico") -c $script -ann "这是一个注释~" -p $currentShelf;//创建工具栏
